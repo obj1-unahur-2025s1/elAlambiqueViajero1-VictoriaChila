@@ -1,0 +1,53 @@
+import elAlambiqueViajero.*
+
+test "Luke cuenta su viaje a Buenos Aires"{
+    luke.viajarA(buenosAires)
+    assert.equals(1, luke.cantidadViajes())
+}
+
+test "Luke viaja a Buenos Aires"{
+    luke.viajarA(buenosAires)
+    assert.equals("Mate", luke.recuerdo())
+}
+
+test "luke cuenta cuando va de viaje"{
+    luke.viajarA(paris)
+    assert.equals(1, luke.cantidadViajes())
+}
+
+test "luke viaja a paris"{
+    luke.viajarA(paris)
+    assert.equals("Llavero de la Torre Eiffel", luke.recuerdo())
+}
+
+
+test "luke viaja a bs as"{
+    luke.viajarA(buenosAires)
+    assert.equals("Mate", luke.recuerdo())
+}
+
+
+test "luke viaja a las vegas cuando hace homenaje a bs as"{
+    lasVegas.homenaje(buenosAires)
+    luke.viajarA(lasVegas)
+    assert.equals("Mate", luke.recuerdo())
+}
+test "luke viaja a las vegas cuando hace homenaje a paris"{
+    lasVegas.homenaje(paris)
+    luke.viajarA(lasVegas)
+    assert.equals("Llavero Torre Eiffel", luke.recuerdo())
+}
+
+test "luke viaja 2 veces, quiere viajar a Paris y no puede"{
+    luke.viajarA(buenosAires)
+    luke.viajarA(buenosAires)
+    luke.viajarA(paris)
+    assert.notEquals("Llavero Torre Eiffel",luke.recuerdo())
+}
+
+test "luke viaja a Londres en el convertible convertido en chatarra" {
+  luke.vehiculo(superConvertible)
+  superConvertible.convertir(superChatarraEspecial)
+  luke.viajarA(londres)
+  assert.equals("caja de te",luke.recuerdo())
+}
